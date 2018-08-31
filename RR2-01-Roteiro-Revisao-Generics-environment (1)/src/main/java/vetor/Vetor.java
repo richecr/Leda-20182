@@ -9,7 +9,7 @@ import java.util.Comparator;
  * @author Adalberto
  *
  */
-public class Vetor<T> {
+public class Vetor<T extends Comparable<T>> {
 
 	// O array interno onde os objetos manipulados são guardados
 	private T[] arrayInterno;
@@ -26,6 +26,7 @@ public class Vetor<T> {
 
 	public Vetor(int tamanho) {
 		super();
+		this.arrayInterno = (T[]) new Comparable[tamanho];
 		this.tamanho = tamanho;
 		this.indice = 0;
 	}
@@ -40,20 +41,18 @@ public class Vetor<T> {
 
 	// Insere um objeto no vetor
 	public void inserir(T o) {
-		if (this.indice < this.tamanho) {
-			this.arrayInterno[this.indice] = o;
-			this.indice++;
-		}
-		throw new IllegalArgumentException("Array cheio!");
+		this.arrayInterno[this.indice] = o;
+		this.indice++;
 	}
 
 	// Remove um objeto do vetor
 	public T remover(T o) {
-		T res = this.procurar(o);
+		T res = null;
 		int i = 0;
 		boolean achou = false;
 		while ((i < this.arrayInterno.length) && !achou) {
 			if (this.arrayInterno[i].equals(o)) {
+				res = this.arrayInterno[i];
 				this.arrayInterno[i] = this.arrayInterno[this.indice-1];
 				this.arrayInterno[this.indice-1] = null;
 				this.indice--;
@@ -66,12 +65,12 @@ public class Vetor<T> {
 
 	// Procura um elemento no vetor
 	public T procurar(T o) {
-		T res;
+		T res = null;
 		int i = 0;
 		boolean achou = false;
-		while ((i < this.arrayInterno.length) && !achou) {
+		while ((i < this.indice) && !achou) {
 			if (this.arrayInterno[i].equals(o)) {
-				res = i;
+				res = this.arrayInterno[i];
 				achou = true;
 			}
 			i++;
@@ -87,6 +86,32 @@ public class Vetor<T> {
 	// Diz se o vetor está cheio
 	public boolean isCheio() {
 		return (this.indice == tamanho);
+	}
+	
+	public T maximo() {
+		T res = null;
+		if(!this.isVazio()) {
+			res = this.arrayInterno[0];
+			for (int i = 1; i < this.indice; i++) {
+				if (this.comparadorMaximo.compare(res, this.arrayInterno[i]) < 0) {
+					res = this.arrayInterno[i];
+				}
+			}
+		}
+		return res;
+	}
+	
+	public T minimo() {
+		T res = null;
+		if(!this.isVazio()) {
+			res = this.arrayInterno[0];
+			for (int i = 0; i < this.indice-1; i++) {
+				if (this.comparadorMinimo.compare(res, this.arrayInterno[i]) < 0) {
+					res = this.arrayInterno[i];
+				}
+			}
+		}
+		return res;
 	}
 
 }
