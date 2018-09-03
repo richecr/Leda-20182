@@ -3,8 +3,7 @@ package recursao;
 public class MetodosRecursivos {
 
 	public static void main(String[] args) {
-		String[] a =  {"1", "2", null, null, "4"};
-		System.out.println(countNotNull(a));
+		System.out.println(potenciaDe2(6));
 	}
 	
 	public int calcularSomaArray(int[] array){
@@ -53,11 +52,13 @@ public class MetodosRecursivos {
 		return res;
 	}
 
-	public long potenciaDe2(int expoente) {
+	public static long potenciaDe2(int expoente) {
 		int result = 1;
-		// TODO IMPLEMENTE (USANDO RECURSAO) O CODIGO PARA PRODUZIR A N-ESIMA
-		// POTENCIA
-		// DE 2
+		if (expoente == 0) {
+			
+		} else {
+			result = (int) (2 * potenciaDe2(expoente-1));
+		}
 		return result;
 	}
 
