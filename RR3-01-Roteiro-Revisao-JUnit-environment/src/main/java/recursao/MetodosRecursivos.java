@@ -3,7 +3,7 @@ package recursao;
 public class MetodosRecursivos {
 
 	public static void main(String[] args) {
-		System.out.println(potenciaDe2(6));
+		System.out.println(progressaoAritmetica(0, 2, 5));
 	}
 	
 	public int calcularSomaArray(int[] array){
@@ -62,11 +62,13 @@ public class MetodosRecursivos {
 		return result;
 	}
 
-	public double progressaoAritmetica(double termoInicial, double razao, int n) {
+	public static double progressaoAritmetica(double termoInicial, double razao, int n) {
 		double result = 0;
-		// TODO IMPLEMENTE SEU CODIGO (USANDO RECURSAO) DE ENCONTRAR O n-ESIMO
-		// TERMO
-		// DA PROGRESSAO ARITMETICA, DADO O TERMO INICIAL E A RAZAO
+		if (n == 1) {
+			result = termoInicial;
+		} else {
+			result = progressaoAritmetica(termoInicial+razao, razao, n-1);
+		}
 		return result;
 	}
 
