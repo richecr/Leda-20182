@@ -1,16 +1,16 @@
 
 public class InsertionSort<T extends Comparable> implements Sorting<T> {
 
-	public void sort(T[] array, int right, int left) {
-		 for (int i = right; i < left - 1; i++) {
-	        int index = i;
-	        for (int j = i + 1; j < left; j++) {
-	            if (array[j].compareTo(array[index]) < 0) { 
-	                index = j;
-	            }
-	        }
-	        this.swap(array, index, i);
-		 }
+	public void sort(T[] array, int left, int right) {
+		 for (int i = left+1; i <= right; i++) {
+			T key = array[i];
+			int j = i - 1;
+			while((j >= 0) && (array[j].compareTo(key) > 0)) {
+				array[j+1] = array[j];
+				j--;
+			}
+			array[j+1] = key;
+		}
 	}
 	
 	public void sortRecursivo(T[] array) {

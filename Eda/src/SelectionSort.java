@@ -1,10 +1,10 @@
 
 public class SelectionSort<T extends Comparable> implements Sorting<T> {
 
-	public void sort(T[] array, int right, int left) {
-		for (int i = right; i < left-1; i++) {
+	public void sort(T[] array, int left, int right) {
+		for (int i = left; i < right; i++) {
 			int min = i;
-			for (int j = i+1; j < left; j++) {
+			for (int j = i+1; j <= right; j++) {
 				if (array[j].compareTo(array[min]) < 0) {
 					min = j;
 				}
