@@ -42,7 +42,7 @@ public class StudentSortingTest {
 	private void getImplementation() {
 		// TODO O aluno deve instanciar sua implementação abaixo ao invés de
 		// null
-		this.implementation = new SimultaneousBubblesort<Integer>();
+		this.implementation = new InsertionSort<Integer>();
 	}
 
 	public void populaVetorTamanhoPar(Integer[] arrayPadrao) {
@@ -109,4 +109,42 @@ public class StudentSortingTest {
 	 * SEGUIR A ESTRUTURA DOS MÉTODOS DE TESTE ACIMA DESCRITOS, ORDENANDO APENAS
 	 * UMA PARTE DO ARRAY.
 	 */
+	public void genericTest(Integer[] array, int left, int right) {
+		Integer[] copy1 = {};
+		Integer[] copy2 = {};
+		if(array.length > 0){
+			copy1 = Arrays.copyOfRange(array, left, right+1);		
+		}
+		implementation.sort(array, left, right);
+		copy2 = Arrays.copyOfRange(array, left, right+1);
+		Arrays.sort(copy1);
+		Assert.assertArrayEquals(copy1, copy2);
+	}
+	
+	@Test
+	public void testeSort6() {
+		genericTest(vetorTamPar, 1, 5);
+	}
+	
+	@Test
+	public void testeSort7() {
+		genericTest(vetorTamImpar, 1, 5);
+	}
+	
+	@Test
+	public void testeSort8() {
+		genericTest(vetorValoresIguais, 1, 5);
+	}
+	
+	@Test
+	public void testeSort9() {
+		genericTest(vetorValoresRepetidos, 2, 7);
+	}
+	
+	@Test
+	public void testeSort10() {
+		// O algoritmo deveria lançar uma exceção.
+		//genericTest(vetorVazio, 2, 7);
+	}
+	
 }

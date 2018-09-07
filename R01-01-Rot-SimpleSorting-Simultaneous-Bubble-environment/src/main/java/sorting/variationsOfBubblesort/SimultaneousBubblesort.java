@@ -23,7 +23,7 @@ public class SimultaneousBubblesort<T extends Comparable<T>> extends AbstractSor
 			int i = leftIndex+1;
 			int j = rightIndex;
 			
-			while(i <= rightIndex && j > leftIndex) {
+			while(i <= rightIndex && j >= leftIndex) {
 				if(array[i].compareTo(array[i - 1]) < 0) {
 					Util.swap(array, i, i - 1);
 				}
