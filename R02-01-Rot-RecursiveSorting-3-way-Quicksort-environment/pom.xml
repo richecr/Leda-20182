@@ -86,7 +86,7 @@
 						</goals>
 						<configuration>
 							<!-- insira sua matricula -->
-							<matricula>117210696</matricula>
+							<matricula>117210710</matricula>
 							<!-- insira o ID correto da atividade e a turma -->
 							<roteiro>R02-01</roteiro>
 							<!-- NÃO MODIFIQUE AS TAGS ABAIXO -->
@@ -115,9 +115,9 @@
 							<!-- INSIRA OS NOMES COMPLETOS DAS CLASSES A SEREM TESTADAS AQUI (Full 
 								qualified name = nome com o pacote) -->
 							<qualifiedNames>
-								<!-- name>sorting.simpleSorting.BubbleSort</name -->
-								<!-- name>sorting.simpleSorting.SelectionSort</name -->
-								<!-- name>sorting.simpleSorting.InsertionSort</name -->
+								<name>sorting.divideAndConquer.MergeSort</name>
+								<name>sorting.divideAndConquer.QuickSort</name>
+								<name>sorting.divideAndConquer.threeWayQuicksort.ThreeWayQuickSort</name>
 							</qualifiedNames>
 						</configuration>
 					</execution>

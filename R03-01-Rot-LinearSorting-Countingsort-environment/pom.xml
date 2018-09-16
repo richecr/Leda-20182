@@ -116,7 +116,7 @@
 								qualified name = nome com o pacote) -->
 							<qualifiedNames>
 								<name>sorting.linearSorting.CountingSort</name>
-								<name>sorting.linearSorting.StudentSortingTest</name>
+								<name>sorting.linearSorting.ExtendedCountingSort</name>
 							</qualifiedNames>
 						</configuration>
 					</execution>
