@@ -6,7 +6,7 @@ class Main {
 	public static void main(String[] args) {
 		
 		Integer[] array = {4, 5, 3, 2, 7, 1, -4};
-		MergeSort<Integer> b = new MergeSort<>();
+		QuickSort<Integer> b = new QuickSort<>();
 		
 		b.sort(array, 0, 6);
 		System.out.println(Arrays.toString(array));
