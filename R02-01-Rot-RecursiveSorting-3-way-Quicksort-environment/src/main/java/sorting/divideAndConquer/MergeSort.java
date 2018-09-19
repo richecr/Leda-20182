@@ -16,34 +16,35 @@ public class MergeSort<T extends Comparable<T>> extends AbstractSorting<T> {
 	@Override
 	public void sort(T[] array, int leftIndex, int rightIndex) {
 		if (leftIndex < rightIndex) {
-			int m = (leftIndex + rightIndex) / 2;
-			sort(array, leftIndex, m);
-			sort(array, m + 1, rightIndex);
+			int meio = (leftIndex + rightIndex) / 2;
+			sort(array, leftIndex, meio);
+			sort(array, meio+1, rightIndex);
 			
-			mergeSort(array, leftIndex, m, rightIndex);
+			merge(array, leftIndex, meio, rightIndex);
 		}
 	}
 	
-	public void mergeSort(T[] array, int left, int middle, int right) {
-		int limite1 = middle - left;
-		int limite2 = right - middle;
+	private void merge(T[] array, int leftIndex, int meio, int rightIndex) {
+		int limite1 = meio - leftIndex;
+		int limite2 = rightIndex - meio;
 		
 		List<T> lista1 = new LinkedList<T>();
 		List<T> lista2 = new LinkedList<T>();
 		
+		// Copiando itens.
 		for (int i = 0; i <= limite1; i++) {
-			lista1.add(array[left + i]);
+			lista1.add(array[leftIndex + i]);
 		}
 		
 		for (int i = 0; i < limite2; i++) {
-			lista2.add(array[middle + 1 + i]);
+			lista2.add(array[meio + 1 + i]);
 		}
 		
 		int i = 0;
 		int j = 0;
-		int k = left;
-		
-		while (i <= limite1 && j < limite2) {
+		int k = leftIndex;
+		// Comparando as objetos das duas listas e organizando corretamente no array original.
+		while(i <= limite1 && j < limite2) {
 			if (lista1.get(i).compareTo(lista2.get(j)) < 0) {
 				array[k] = lista1.get(i);
 				i++;
@@ -54,17 +55,18 @@ public class MergeSort<T extends Comparable<T>> extends AbstractSorting<T> {
 			k++;
 		}
 		
-		while(i <= limite1) {
+		// Adiconando os objetos que faltam da lista1 no array original.
+		while (i <= limite1) {
 			array[k] = lista1.get(i);
 			i++;
 			k++;
 		}
 		
-		while(j < limite2) {
+		// Adiconando os objetos que faltam da lista2 no array original.
+		while (j < limite2) {
 			array[k] = lista2.get(j);
 			j++;
 			k++;
 		}
 	}
-	
 }

@@ -4,7 +4,7 @@ public class SelectionSort<T extends Comparable> implements Sorting<T> {
 	public void sort(T[] array, int left, int right) {
 		for (int i = left; i < right; i++) {
 			int min = i;
-			for (int j = i+1; j <= right; j++) {
+			for (int j = i+1; j < right; j++) {
 				if (array[j].compareTo(array[min]) < 0) {
 					min = j;
 				}
@@ -18,7 +18,7 @@ public class SelectionSort<T extends Comparable> implements Sorting<T> {
 	}
 	
 	private void sortRecursivo(T[] array, int comeco) {
-		if (comeco == array.length-1) {
+		if (comeco == array.length) {
 			return;
 		}
 		int min = comeco;

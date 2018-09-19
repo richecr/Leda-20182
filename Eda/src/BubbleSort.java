@@ -1,11 +1,11 @@
 
 public class BubbleSort<T extends Comparable> implements Sorting<T> {
 
-	public void sort(T[] array, int right, int left) {
+	public void sort(T[] array, int left, int right) {
 		boolean ordenado = false;
 		while(!ordenado) {
 			ordenado = true;
-			for (int i = right; i < left-1; i++) {
+			for (int i = left; i < right-1; i++) {
 				if (array[i].compareTo(array[i+1]) > 0) {
 					this.swap(array, i, i+1);
 					ordenado = false;

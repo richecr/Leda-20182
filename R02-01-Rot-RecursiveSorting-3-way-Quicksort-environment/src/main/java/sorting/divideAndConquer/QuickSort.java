@@ -1,5 +1,7 @@
 package sorting.divideAndConquer;
 
+import javax.naming.PartialResultException;
+
 import sorting.AbstractSorting;
 import util.Util;
 
@@ -18,9 +20,9 @@ public class QuickSort<T extends Comparable<T>> extends AbstractSorting<T> {
 		if (leftIndex > rightIndex) {
 			return;
 		}
-		int m  = partition(array, leftIndex, rightIndex);
+		int m = partition(array, leftIndex, rightIndex);
 		sort(array, leftIndex, m-1);
-		sort(array, m+1, rightIndex);
+		sort(array, m + 1, rightIndex);
 	}
 
 	private int partition(T[] array, int leftIndex, int rightIndex) {
