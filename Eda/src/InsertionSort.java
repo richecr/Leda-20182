@@ -14,21 +14,23 @@ public class InsertionSort<T extends Comparable> implements Sorting<T> {
 	}
 	
 	public void sortRecursivo(T[] array) {
-		this.sortRecursivo(array, 0);
+		this.sortRecursivo(array, array.length);
 	}
 	
 	private void sortRecursivo(T[] array, int n) {
-		if (n == array.length-1) {
-			return;
-		}
-		int index = n;
-		for (int j = index+1; j < array.length; j++) {
-			if (array[j].compareTo(array[index]) < 0) { 
-                index = j;
-            }
-		}
-		this.swap(array, n, index);
-		this.sortRecursivo(array, n+1);
+	    if (n <= 1)
+	        return;
+	 
+	    sortRecursivo(array, n-1);
+
+	    T ultimo = array[n-1];
+	    int j = n-2;
+	 
+	    while (j >= 0 && array[j].compareTo(ultimo) > 0) {
+	    	array[j+1] = array[j];
+	        j--;
+	    }
+	    array[j+1] = ultimo;
 	}
 
 	public void swap(T[] array, int i, int j) {
