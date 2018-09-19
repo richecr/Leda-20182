@@ -6,9 +6,9 @@ class Main {
 	public static void main(String[] args) {
 		
 		Integer[] array = {4, 5, 3, 2, 7, 1, -4};
-		Sorting b = new InsertionSort<Integer>();
+		MergeSort<Integer> b = new MergeSort<>();
 		
-		b.sortRecursivo(array);
+		b.sort(array, 0, 6);
 		System.out.println(Arrays.toString(array));
 	}
 
