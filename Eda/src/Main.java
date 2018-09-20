@@ -5,10 +5,10 @@ class Main {
 	
 	public static void main(String[] args) {
 		
-		Integer[] array = {4, 5, 3, 2, 7, 1, -4, -3, 0};
-		CountinSort b = new CountinSort();
+		Integer[] array = {4, 5, 3, 2, 7, 1, 4, 3, 0};
+		BucketSort b = new BucketSort();
 		
-		b.sortMelhorado(array, 0, 7);
+		b.sort(array, 0, 8);
 		System.out.println(Arrays.toString(array));
 	}
 

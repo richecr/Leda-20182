@@ -15,10 +15,14 @@ public class CountinSort {
 		}
 		
 		for (int i = right; i >= left; i--) {
-			b[c[--array[i]]] = array[i];
+			c[array[i]]--;
+			b[c[array[i]]] = array[i];
 		}
-		for (int i = 0; i < b.length; i++) {
-			array[i] = b[i];
+		// COPIANDO.
+		int index = 0;
+		for (int i = left; i <= right; i++) {
+			array[i] = b[index];
+			index++;
 		}
 	}
 	
@@ -45,8 +49,11 @@ public class CountinSort {
 			b[c[array[i] - offset]] = array[i];
 		}
 		
-		for (int i = 0; i < b.length; i++) {
-			array[i] = b[i];
+		// COPIANDO.
+		int index = 0;
+		for (int i = left; i <= right; i++) {
+			array[i] = b[index];
+			index++;
 		}
 	}
 
