@@ -1,4 +1,4 @@
-package estruturas;
+package estruturas.exceptions;
 
 public class StackUnderflowException extends Exception {
 

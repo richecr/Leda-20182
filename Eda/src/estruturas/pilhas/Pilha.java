@@ -1,7 +1,7 @@
 package estruturas.pilhas;
 
-import estruturas.StackOverflowException;
-import estruturas.StackUnderflowException;
+import estruturas.exceptions.StackOverflowException;
+import estruturas.exceptions.StackUnderflowException;
 
 public class Pilha<T> implements Stack<T>{
 

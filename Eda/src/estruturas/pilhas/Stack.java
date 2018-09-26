@@ -1,6 +1,8 @@
 package estruturas.pilhas;
 
 import estruturas.*;
+import estruturas.exceptions.StackOverflowException;
+import estruturas.exceptions.StackUnderflowException;
 
 public interface Stack<T> {
 	

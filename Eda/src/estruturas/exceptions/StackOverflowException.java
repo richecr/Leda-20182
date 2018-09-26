@@ -1,4 +1,4 @@
-package estruturas;
+package estruturas.exceptions;
 
 public class StackOverflowException extends Exception {
 
