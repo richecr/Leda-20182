@@ -1,3 +1,4 @@
+package ordenacao;
 
 public class SelectionSort<T extends Comparable> implements Sorting<T> {
 

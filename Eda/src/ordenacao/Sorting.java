@@ -1,3 +1,4 @@
+package ordenacao;
 
 public interface Sorting<T extends Comparable> {
 	

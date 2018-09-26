@@ -1,3 +1,4 @@
+package ordenacao;
 
 public class BubbleSort<T extends Comparable> implements Sorting<T> {
 

@@ -1,3 +1,4 @@
+package ordenacao;
 
 public class InsertionSort<T extends Comparable> implements Sorting<T> {
 

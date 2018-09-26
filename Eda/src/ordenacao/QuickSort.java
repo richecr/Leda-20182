@@ -1,3 +1,4 @@
+package ordenacao;
 
 public class QuickSort<T extends Comparable<T>> {
 	
