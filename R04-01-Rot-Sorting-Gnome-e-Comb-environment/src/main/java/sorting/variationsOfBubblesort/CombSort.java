@@ -15,13 +15,12 @@ public class CombSort<T extends Comparable<T>> extends AbstractSorting<T> {
 
 		while (gap >= 1) {
 			gap = (int) (gap / 1.25);
-
 			if (gap < 1) {
 				gap = 1;
 			}
 
 			swapped = false;
-			int i = 0;
+			int i = leftIndex;
 
 			while ((i + gap) <= rightIndex) {
 				if (array[i].compareTo(array[i + gap]) > 0) {
@@ -30,7 +29,6 @@ public class CombSort<T extends Comparable<T>> extends AbstractSorting<T> {
 				}
 				i++;
 			}
-
 			if (gap == 1 && !swapped) {
 				gap = 0;
 			}
