@@ -2,16 +2,16 @@ package estruturas.linkedlist.linkedsimples;
 
 public class Linked<T extends Comparable<T>> implements LinkedList<T> {
 
-	private Celula head;
+	protected CelulaSimples head;
 	private int size;
 	
 	public Linked() {
-		this.head = null;
+		this.head = new CelulaSimples<>();
 	}
 	
 	@Override
 	public boolean isEmpty() {
-		return this.head == null;
+		return this.head.isNil();
 	}
 
 	@Override
@@ -22,32 +22,28 @@ public class Linked<T extends Comparable<T>> implements LinkedList<T> {
 	@Override
 	public T search(T element) {
 		T res = null;
-		if (this.isEmpty()) {
-			throw new NullPointerException("Lista esta vazia");
-		} else {
-			Celula aux = this.head;
-			while(aux != null) {
-				if (aux.getElemento().equals(element)) {
-					res = (T) aux.getElemento();
-				}
-				aux = aux.getProximo();
-			}
+		CelulaSimples<T> aux = this.head;
+		while(!aux.isNil() && aux.getElemento().equals(element)) {
+			res = (T) aux.getElemento();
+			aux = aux.getProximo();
 		}
 		return res;
 	}
 
 	@Override
 	public void insert(T element) {
-		Celula<T> nova = new Celula<T>(null, element);
-		if (this.head == null) {
+		CelulaSimples<T> aux = this.head;
+		if (this.isEmpty()) {
+			CelulaSimples<T> nova = new CelulaSimples<T>(null, element);
+			nova.setProximo(new CelulaSimples<>());
 			this.head = nova;
 		} else {
-			Celula<T> aux;
-			aux = this.head;
-			while(aux.getProximo() != null) {
+			while(!aux.getProximo().isNil()) {
 				aux = aux.getProximo();
 			}
-			aux.setProximo(nova);
+			CelulaSimples<T> novaCelula = new CelulaSimples<>(null, element);
+			novaCelula.setProximo(aux.getProximo());
+			aux.setProximo(novaCelula);
 			this.size++;
 		}
 		
@@ -60,13 +56,13 @@ public class Linked<T extends Comparable<T>> implements LinkedList<T> {
 		} else if(this.head.getElemento().equals(element)) {
 			this.head = this.head.getProximo();
 		} else {
-			Celula aux = this.head;
-			Celula anterior = null;
-			while(aux != null && aux.getElemento() != element) {
+			CelulaSimples<T> aux = this.head;
+			CelulaSimples<T> anterior = new CelulaSimples<>();
+			while(!aux.isNil() && aux.getElemento() != element) {
 				anterior = aux;
 				aux = aux.getProximo();
 			}
-			if (aux != null) {
+			if (!aux.isNil()) {
 				anterior.setProximo(aux.getProximo());
 			}
 		}
@@ -79,7 +75,7 @@ public class Linked<T extends Comparable<T>> implements LinkedList<T> {
 			throw new NullPointerException("Lista esta vazia");
 		} else {
 			int i = 0;
-			Celula<T> aux = this.head;
+			CelulaSimples<T> aux = this.head;
 			while(i <= this.size && aux != null) {
 				res[i] = aux.getElemento();
 				aux = aux.getProximo();
@@ -95,9 +91,9 @@ public class Linked<T extends Comparable<T>> implements LinkedList<T> {
 		if (this.isEmpty()) {
 			throw new NullPointerException("Lista esta vazia");
 		} else {
-			Celula aux = this.head;
+			CelulaSimples<T> aux = this.head;
 			maior = (T) aux.getElemento();
-			while(aux != null) {
+			while(!aux.isNil()) {
 				if (aux.getElemento().compareTo(maior) > 0) {
 					maior = (T) aux.getElemento();
 				}

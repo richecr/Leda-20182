@@ -7,11 +7,10 @@ public class Main {
 	public static void main(String[] args) {
 		LinkedListDupla<Integer> lista = new LinkedDupla<>();
 		lista.insert(0);
-		lista.insert(1);
-		lista.insert(2);
 		System.out.println(Arrays.toString(lista.toArray()));
-		
-		lista.remove(1);
+		lista.insert(25);
+		System.out.println(Arrays.toString(lista.toArray()));
+		/*lista.remove(1);
 		System.out.println(Arrays.toString(lista.toArray()));
 		
 		lista.insert(10);
@@ -46,7 +45,7 @@ public class Main {
 		lista.insertFirst(800);
 		System.out.println(Arrays.toString(lista.toArray()));
 		
-		System.out.println(lista.maiorElemento());
+		System.out.println(lista.maiorElemento());*/
 		
 	}
 	

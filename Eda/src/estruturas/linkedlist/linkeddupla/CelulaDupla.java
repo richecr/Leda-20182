@@ -1,26 +1,28 @@
 package estruturas.linkedlist.linkeddupla;
 
-public class Celula<T extends Comparable<T>> {
+import estruturas.linkedlist.linkedsimples.CelulaSimples;
 
-	/**
-	 * Atributo que representa a proxima celula na lista.
-	 */
-	private Celula<T> proxima;
+public class CelulaDupla<T extends Comparable<T>> extends CelulaSimples<T> {
+
 	/**
 	 * Atributo que representa a celula anterior na lista.
 	 */
-	private Celula<T> anterior;
+	private CelulaDupla<T> anterior;
 	/**
 	 * Atributo que representa o elemento desta celula.
 	 */
 	private T elemento;
+	
+	public CelulaDupla() {
+		this(null, null, null);
+	}
 	
 	/**
 	 * Construtor.
 	 * 
 	 * @param elemento Elemento desta celula.
 	 */
-	public Celula(T elemento) {
+	public CelulaDupla(T elemento) {
 		this(null, null, elemento);
 	}
 	
@@ -31,10 +33,9 @@ public class Celula<T extends Comparable<T>> {
 	 * @param proxima Celula depois desta. 
 	 * @param elemento Elemento desta celula.
 	 */
-	public Celula(Celula<T> anterior, Celula<T> proxima, T elemento) {
-		this.proxima = proxima;
+	public CelulaDupla(CelulaDupla<T> anterior, CelulaDupla<T> proxima, T elemento) {
+		super(proxima, elemento);
 		this.anterior = anterior;
-		this.elemento = elemento;
 	}
 	
 	/**
@@ -42,7 +43,7 @@ public class Celula<T extends Comparable<T>> {
 	 * 
 	 * @param anterior Celula anterior.
 	 */
-	public void setAnterior(Celula<T> anterior) {
+	public void setAnterior(CelulaDupla<T> anterior) {
 		this.anterior = anterior;
 	}
 	
@@ -51,7 +52,7 @@ public class Celula<T extends Comparable<T>> {
 	 * 
 	 * @param celula Proxima celula.
 	 */
-	public void setProximo(Celula<T> proximo) {
+	public void setProximo(CelulaDupla<T> proximo) {
 		this.proxima = proximo;
 	}
 	
@@ -60,7 +61,7 @@ public class Celula<T extends Comparable<T>> {
 	 * 
 	 * @return Celula A celula anterior.
 	 */
-	public Celula<T> getAnterior(){
+	public CelulaDupla<T> getAnterior(){
 		return this.anterior;
 	}
 	
@@ -69,8 +70,8 @@ public class Celula<T extends Comparable<T>> {
 	 * 
 	 * @return Celula A proxima celula.
 	 */
-	public Celula<T> getProximo(){
-		return this.proxima;
+	public CelulaDupla<T> getProximo(){
+		return (CelulaDupla<T>) this.proxima;
 	}
 	
 	/**

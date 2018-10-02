@@ -1,15 +1,19 @@
 package estruturas.linkedlist.linkedsimples;
 
-public class Celula<T extends Comparable<T>> {
+public class CelulaSimples<T extends Comparable<T>> {
 	
 	/**
 	 * Atributo que representa a proxima celula da lista.
 	 */
-	private Celula proxima;
+	protected CelulaSimples proxima;
 	/**
 	 * Atributo que representa o elemento dessa celula na lista.
 	 */
 	private T elemento;
+	
+	public CelulaSimples() {
+		this(null, null);
+	}
 	
 	/**
 	 * Construtor.
@@ -17,7 +21,7 @@ public class Celula<T extends Comparable<T>> {
 	 * @param prox Proxima celula depois dessa celula na lista.
 	 * @param elemento Elemento da lista
 	 */
-	public Celula(Celula prox, T elemento) {
+	public CelulaSimples(CelulaSimples prox, T elemento) {
 		this.proxima = prox;
 		this.elemento = elemento;
 	}
@@ -27,7 +31,7 @@ public class Celula<T extends Comparable<T>> {
 	 * 
 	 * @param celula Proxima celula.
 	 */
-	public void setProximo(Celula celula) {
+	public void setProximo(CelulaSimples celula) {
 		this.proxima = celula;
 	}
 	
@@ -36,7 +40,7 @@ public class Celula<T extends Comparable<T>> {
 	 * 
 	 * @return Celula A proxima celula.
 	 */
-	public Celula getProximo() {
+	public CelulaSimples getProximo() {
 		return this.proxima;
 	}
 	
@@ -47,5 +51,9 @@ public class Celula<T extends Comparable<T>> {
 	 */
 	public T getElemento() {
 		return this.elemento;
+	}
+	
+	public boolean isNil() {
+		return this.elemento == null;
 	}
 }

@@ -17,13 +17,12 @@ public class Main {
 		System.out.println(lista.search(1));
 		System.out.println(lista.search(200));
 		
-		System.out.println("MAIOR: " + lista.maiorElemento());
-		
 		lista.remove(2);
 		lista.remove(0);
 		lista.remove(1);
 		lista.insert(50);
 		System.out.println(Arrays.toString(lista.toArray()));
+		System.out.println("MAIOR: " + lista.maiorElemento());
 		
 	}
 }
