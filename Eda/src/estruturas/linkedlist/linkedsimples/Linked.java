@@ -112,4 +112,8 @@ public class Linked<T extends Comparable<T>> implements LinkedList<T> {
 		}
 		return false;
 	}
+	
+	public CelulaSimples<T> getHead(){
+		return this.head;
+	}
 }

@@ -159,4 +159,8 @@ public class LinkedDupla<T extends Comparable<T>> extends Linked<T> implements L
 		}
 		return result;
 	}
+	
+	public CelulaDupla<T> getLast() {
+		return this.last;
+	}
 }
