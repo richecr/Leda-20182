@@ -102,4 +102,14 @@ public class Linked<T extends Comparable<T>> implements LinkedList<T> {
 		}
 		return maior;
 	}
+	
+	@Override
+	public boolean contains(T element) {
+		boolean result = false;
+		T res = this.search(element);
+		if (res != null) {
+			result = true;
+		}
+		return false;
+	}
 }

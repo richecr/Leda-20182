@@ -3,46 +3,53 @@ package estruturas.linkedlist.linkedsimples;
 public interface LinkedList<T extends Comparable<T>> {
 	
 	/**
-	 * Método que verifica se a lista esta vazia.
+	 * Mï¿½todo que verifica se a lista esta vazia.
 	 * 
-	 * @return Boolean True se estiver fazia, false caso contrário.
+	 * @return Boolean True se estiver fazia, false caso contrï¿½rio.
 	 */
 	public boolean isEmpty();
 	/**
-	 * Método que retorna a quantidade de itens na lista.
+	 * Mï¿½todo que retorna a quantidade de itens na lista.
 	 * 
 	 * @return Integer Quantidade de itens na lista.
 	 */
 	public int size();
 	/**
-	 * Método que procura um elemento na lista.
+	 * Mï¿½todo que procura um elemento na lista.
 	 * 
 	 * @param element Elemento a ser procurado.
-	 * @return T O próprio elemento, se não estiver na lista, retorna null.
+	 * @return T O prï¿½prio elemento, se nï¿½o estiver na lista, retorna null.
 	 */
 	public T search(T element);
 	/**
-	 * Método que insere no final um elemento na lista.
+	 * Mï¿½todo que insere no final um elemento na lista.
 	 * 
 	 * @param element Elemento a ser inserido na lista
 	 */
 	public void insert(T element);
 	/**
-	 * Método que remove o elemento da lista.
+	 * Mï¿½todo que remove o elemento da lista.
 	 * 
 	 * @param element Elemento a ser removido.
 	 */
 	public void remove(T element);
 	/**
-	 * Método que retorna os elementos.
+	 * Mï¿½todo que retorna os elementos.
 	 * 
 	 * @return T[] Array de elementos.
 	 */
 	public T[] toArray();
 	/**
-	 * Método que acha o maior elemento da lista.
+	 * Mï¿½todo que acha o maior elemento da lista.
 	 * 
 	 * @return T Maior elemeno.
 	 */
 	public T maiorElemento();
+	/**
+	 * MÃ©todo que verifica se a lista contÃ©m o elemento.
+	 * 
+	 * @param element Elemento a ser verificado.
+	 * @return True se o elemento estiver na lista, false caso contrÃ¡rio.
+	 */
+	public boolean contains(T element);
 }

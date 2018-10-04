@@ -149,5 +149,14 @@ public class LinkedDupla<T extends Comparable<T>> extends Linked<T> implements L
 		}
 		return maior;
 	}
-
+	
+	@Override
+	public boolean contains(T element) {
+		boolean result = false;
+		T res = this.search(element);
+		if (res != null) {
+			result = true;
+		}
+		return result;
+	}
 }
