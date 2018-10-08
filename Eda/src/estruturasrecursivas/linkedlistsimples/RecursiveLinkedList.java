@@ -2,8 +2,8 @@ package estruturasrecursivas.linkedlistsimples;
 
 public class RecursiveLinkedList<T> implements LinkedList<T> {
 
-	private T data;
-	private RecursiveLinkedList<T> next;
+	protected T data;
+	protected RecursiveLinkedList<T> next;
 	
 	@Override
 	public boolean isEmpty() {
