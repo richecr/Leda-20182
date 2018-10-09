@@ -11,9 +11,11 @@ public class RecursiveLinkedListDupla<T> extends RecursiveLinkedList<T>
 	public void insert(T e) {
 		if (this.isEmpty()) {
 			this.data = e;
-			this.next = new RecursiveLinkedListDupla<>();
+			RecursiveLinkedListDupla<T> nil = new RecursiveLinkedListDupla<>();
+			this.next = nil;
+			nil.previous = this;
 			if (this.previous == null) {
-				this.previous = new RecursiveLinkedListDupla<>();
+				this.previous = nil;
 			}
 		} else {
 			this.next.insert(e);
@@ -45,20 +47,31 @@ public class RecursiveLinkedListDupla<T> extends RecursiveLinkedList<T>
 	
 	@Override
 	public void insertFirst(T element) {
-		// TODO Auto-generated method stub
-		
+		if (this.isEmpty()) {
+
+		} else {
+			((RecursiveLinkedListDupla<T>) this.next).data = this.data;
+			
+		}
 	}
 
 	@Override
     public void removeFirst() {
-		// TODO Auto-generated method stub
-		
+		if (this.isEmpty()) {
+			// Nao faz nada.
+		} else {
+			this.data = ((RecursiveLinkedListDupla<T>) this.next).data;
+			((RecursiveLinkedListDupla<T>) this.next).removeFirst();
+		}
 	}
 
 	@Override
 	public void removeLast() {
-		// TODO Auto-generated method stub
-		
+		if (this.isEmpty()) {
+			this.previous.previous.next = new RecursiveLinkedListDupla<>();
+		} else {
+			((RecursiveLinkedListDupla<T>) this.next).removeLast();
+		}
 	}
 
 }

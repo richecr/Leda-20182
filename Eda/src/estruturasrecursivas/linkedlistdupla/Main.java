@@ -18,6 +18,10 @@ public class Main {
 		
 		System.out.println(lista.search(10));
 		
+		lista.removeFirst();
+		lista.removeLast();
+		
+		System.out.println(Arrays.toString(lista.toArray()));
 		/*lista.insertFirst(-5);
 		System.out.println(Arrays.toString(lista.toArray()));
 		
