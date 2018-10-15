@@ -1,4 +1,4 @@
-package estruturas.tabelahash.impl;
+package estruturas.tabelahash.hashImplClosed;
 
 public enum HashFunctionClosedAddressMethod {
 	

@@ -1,6 +1,6 @@
-package estruturas.tabelahash.impl;
+package estruturas.tabelahash;
 
-import estruturas.tabelahash.HashFunction;
+import estruturas.tabelahash.hashImplClosed.HashFunctionClosedAddressMethod;
 import estruturas.tabelahash.hashMultiplicacao.HashFunctionMultiplicationMethod;
 import estruturas.tabelahash.hashdivisao.HashFunctionDivisionMethod;
 

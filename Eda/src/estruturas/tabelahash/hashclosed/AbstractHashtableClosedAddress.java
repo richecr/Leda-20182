@@ -1,6 +1,9 @@
-package estruturas.tabelahash;
+package estruturas.tabelahash.hashclosed;
 
 import java.util.LinkedList;
+
+import estruturas.tabelahash.AbstractHashtable;
+import estruturas.tabelahash.Util;
 
 public abstract class AbstractHashtableClosedAddress<T> extends AbstractHashtable<T> {
 

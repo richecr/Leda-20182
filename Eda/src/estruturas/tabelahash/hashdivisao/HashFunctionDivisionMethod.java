@@ -1,6 +1,6 @@
 package estruturas.tabelahash.hashdivisao;
 
-import estruturas.tabelahash.HashFunctionClosedAddress;
+import estruturas.tabelahash.hashclosed.HashFunctionClosedAddress;
 
 public class HashFunctionDivisionMethod<T> implements HashFunctionClosedAddress<T> {
 

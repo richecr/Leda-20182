@@ -1,13 +1,14 @@
-package estruturas.tabelahash.impl;
+package estruturas.tabelahash.hashImplClosed;
 
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-import estruturas.tabelahash.AbstractHashtableClosedAddress;
 import estruturas.tabelahash.HashFunction;
-import estruturas.tabelahash.HashFunctionClosedAddress;
+import estruturas.tabelahash.HashFunctionFactory;
 import estruturas.tabelahash.Util;
+import estruturas.tabelahash.hashclosed.AbstractHashtableClosedAddress;
+import estruturas.tabelahash.hashclosed.HashFunctionClosedAddress;
 
 public class HashtableClosedAddressImpl<T> extends AbstractHashtableClosedAddress<T> {
 

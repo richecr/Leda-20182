@@ -1,6 +1,8 @@
 package estruturas.tabelahash.impl;
 
 import estruturas.tabelahash.AbstractHashtable;
+import estruturas.tabelahash.hashImplClosed.HashFunctionClosedAddressMethod;
+import estruturas.tabelahash.hashImplClosed.HashtableClosedAddressImpl;
 
 public class Main {
 

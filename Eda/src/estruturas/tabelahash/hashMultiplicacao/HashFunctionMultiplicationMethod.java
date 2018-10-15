@@ -1,6 +1,6 @@
 package estruturas.tabelahash.hashMultiplicacao;
 
-import estruturas.tabelahash.HashFunctionClosedAddress;
+import estruturas.tabelahash.hashclosed.HashFunctionClosedAddress;
 
 public class HashFunctionMultiplicationMethod<T> implements HashFunctionClosedAddress<T> {
 
