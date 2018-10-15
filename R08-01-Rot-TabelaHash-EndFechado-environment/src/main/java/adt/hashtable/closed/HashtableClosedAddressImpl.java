@@ -1,7 +1,6 @@
 package adt.hashtable.closed;
 
 import java.util.LinkedList;
-import java.util.Iterator;
 
 import adt.hashtable.hashfunction.HashFunction;
 import adt.hashtable.hashfunction.HashFunctionClosedAddress;
@@ -93,8 +92,7 @@ public class HashtableClosedAddressImpl<T> extends AbstractHashtableClosedAddres
 		int aux = ((HashFunctionClosedAddress<T>) this.hashFunction).hash(element);
 		T saida = null;
 		if (((LinkedList<T>) this.table[aux]) != null) {
-			if (((LinkedList<T>) this.table[aux])
-					.contains(element)) {
+			if (((LinkedList<T>) this.table[aux]).contains(element)) {
 				saida = element;
 			}
 		}
