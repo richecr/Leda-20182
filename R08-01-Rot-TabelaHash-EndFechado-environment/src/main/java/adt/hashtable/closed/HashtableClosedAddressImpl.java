@@ -64,6 +64,7 @@ public class HashtableClosedAddressImpl<T> extends AbstractHashtableClosedAddres
 		return i;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void insert(T element) {
 		if (element != null) {
@@ -75,11 +76,12 @@ public class HashtableClosedAddressImpl<T> extends AbstractHashtableClosedAddres
 			}
 			if (!((LinkedList<T>) this.table[aux]).contains(element)) {
 				((LinkedList<T>) this.table[aux]).add(element);
+				this.elements++;
 			}
-			this.elements++;
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void remove(T element) {
 		int aux = ((HashFunctionClosedAddress<T>) this.hashFunction).hash(element);
@@ -87,18 +89,21 @@ public class HashtableClosedAddressImpl<T> extends AbstractHashtableClosedAddres
 		this.elements--;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public T search(T element) {
 		int aux = ((HashFunctionClosedAddress<T>) this.hashFunction).hash(element);
 		T saida = null;
 		if (((LinkedList<T>) this.table[aux]) != null) {
 			if (((LinkedList<T>) this.table[aux]).contains(element)) {
-				saida = element;
+				int index = ((LinkedList<T>) this.table[aux]).indexOf(element);
+				saida = ((LinkedList<T>) this.table[aux]).get(index);
 			}
 		}
 		return saida;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public int indexOf(T element) {
 		int aux = ((HashFunctionClosedAddress<T>) this.hashFunction).hash(element);
