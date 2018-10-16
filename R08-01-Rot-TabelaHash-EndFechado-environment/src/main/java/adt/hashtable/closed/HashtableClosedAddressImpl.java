@@ -51,17 +51,11 @@ public class HashtableClosedAddressImpl<T> extends AbstractHashtableClosedAddres
 	 * Util.isPrime to check if a number is prime.
 	 */
 	int getPrimeAbove(int number) {
-		int i = number + 1;
-		boolean continua = true;
-
-		while (continua) {
-			if (Util.isPrime(i)) {
-				continua = false;
-			} else {
-				i++;
-			}
+		number++;
+		while (!Util.isPrime(number)) {
+			number++;
 		}
-		return i;
+		return number;
 	}
 
 	@SuppressWarnings("unchecked")
