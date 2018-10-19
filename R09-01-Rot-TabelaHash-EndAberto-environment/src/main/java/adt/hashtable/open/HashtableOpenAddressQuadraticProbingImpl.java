@@ -20,7 +20,7 @@ public class HashtableOpenAddressQuadraticProbingImpl<T extends Storable>
 			int i = 0;
 			while (i < this.table.length) {
 				int j = ((HashFunctionOpenAddress<T>) this.hashFunction).hash(element, i);
-				if (this.table[j] == null || this.table[j].equals(new DELETED())) {
+				if (this.table[j] == null || (new DELETED()).equals(this.table[j])) {
 					this.table[j] = element;
 					this.elements++;
 					return;
@@ -49,6 +49,7 @@ public class HashtableOpenAddressQuadraticProbingImpl<T extends Storable>
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public T search(T element) {
 		int i = 0;
@@ -71,16 +72,17 @@ public class HashtableOpenAddressQuadraticProbingImpl<T extends Storable>
 	public int indexOf(T element) {
 		int i = 0;
 		int saida = -1;
-		int aux;
-		do {
-			aux = ((HashFunctionOpenAddress<T>) this.hashFunction).hash(element, i);
-			if (element.equals(this.table[aux])) {
+		while (i < this.table.length) {
+			int aux = ((HashFunctionOpenAddress<T>) this.hashFunction).hash(element, i);
+			if (this.table[aux] == null) {
+				break;
+			} else if (element.equals(this.table[aux])) {
 				saida = aux;
 				break;
 			} else {
 				i++;
 			}
-		} while (this.table[aux] == null || i < this.table.length);
+		}
 		return saida;
 	}
 }
