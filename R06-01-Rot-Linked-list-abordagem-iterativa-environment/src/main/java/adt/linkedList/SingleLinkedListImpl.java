@@ -1,5 +1,7 @@
 package adt.linkedList;
 
+import java.util.Arrays;
+
 public class SingleLinkedListImpl<T> implements LinkedList<T> {
 
 	protected SingleLinkedListNode<T> head;
@@ -71,7 +73,7 @@ public class SingleLinkedListImpl<T> implements LinkedList<T> {
 
 	@Override
 	public T[] toArray() {
-		T[] result = (T[]) new Object[this.size()];
+		T[] result = (T[]) new Comparable[this.size()];
 		SingleLinkedListNode<T> aux = this.head;
 		int i = 0;
 		while(!aux.isNIL()) {
@@ -90,4 +92,43 @@ public class SingleLinkedListImpl<T> implements LinkedList<T> {
 		this.head = head;
 	}
 
+	public void merge(SingleLinkedListImpl<Integer> l1, SingleLinkedListImpl<Integer> l2) {
+		SingleLinkedListNode<Integer> aux1 = l1.head;
+		SingleLinkedListNode<Integer> aux2 = l2.head;
+		while(!aux1.isNIL() && !aux2.isNIL()) {
+			Integer temp = aux1.data;
+			if (temp > aux2.data) {
+				while(temp > aux2.data) {
+					swap(l1, l2, aux1, aux2, temp);
+					aux2 = aux2.next;
+					if (aux2.isNIL()) {
+						break;
+					}
+				}
+				aux2 = l2.head;
+			}
+			aux1 = aux1.next;
+		}
+		aux2 = l2.head;
+		while(!aux2.isNIL()) {
+			l1.insert(aux2.data);
+			aux2 = aux2.next;
+		}
+	}
+
+	private void swap(SingleLinkedListImpl<Integer> l1, SingleLinkedListImpl<Integer> l2,
+			SingleLinkedListNode<Integer> aux1, SingleLinkedListNode<Integer> aux2, Integer data) {
+		if ((l1.search(data) == data) && (l2.search(aux2.data) == aux2.data)) {
+			Integer temp = aux1.data;
+			aux1.data = aux2.data;
+			aux2.data = temp;
+		} else {
+			SingleLinkedListNode<Integer> aux = l2.head;
+			while(aux.data != data) {
+				aux = aux.next;
+			}
+			aux.data = aux2.data;
+			aux2.data = data;
+		}
+	}
 }
