@@ -1,6 +1,6 @@
 package adt.linkedList;
 
-public class DoubleLinkedListImpl<T> extends SingleLinkedListImpl<T> implements
+public class DoubleLinkedListImpl<T extends Comparable<T>> extends SingleLinkedListImpl<T> implements
 		DoubleLinkedList<T> {
 
 	protected DoubleLinkedListNode<T> last;
