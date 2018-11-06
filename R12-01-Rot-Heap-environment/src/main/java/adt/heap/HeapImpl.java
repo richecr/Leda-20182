@@ -68,8 +68,10 @@ public class HeapImpl<T extends Comparable<T>> implements Heap<T> {
 	@Override
 	public T[] toArray() {
 		ArrayList<T> resp = new ArrayList<T>();
-		for (int i = 0; i < this.size(); i++) {
-			resp.add(heap[i]);
+		for (T heap : this.heap) {
+			if (heap != null) {
+				resp.add(heap);
+			}
 		}
 		return (T[]) resp.toArray(new Comparable[0]);
 	}
@@ -137,6 +139,7 @@ public class HeapImpl<T extends Comparable<T>> implements Heap<T> {
 		if (!this.isEmpty()) {
 			T max = heap[0];
 			heap[0] = heap[this.index];
+			this.heap[this.index] = null;
 			this.index -= 1;
 			heapify(0);
 			return max;
