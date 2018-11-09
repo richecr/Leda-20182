@@ -65,8 +65,9 @@ public class AVLTreeImpl<T extends Comparable<T>> extends BSTImpl<T> implements 
 			if (calculateBalance((BSTNode<T>) node.getLeft()) > 0) {
 				leftRotation((BSTNode<T>) node.getLeft());
 				rightRotation(node);
-			} else
+			} else {
 				rightRotation(node);
+			}
 		}
 	}
 
@@ -74,9 +75,9 @@ public class AVLTreeImpl<T extends Comparable<T>> extends BSTImpl<T> implements 
 	protected void rebalanceUp(BSTNode<T> node) {
 		if (node != null) {
 			BSTNode<T> parent = (BSTNode<T>) node.getParent();
-			if (parent != null) {
+			while (parent != null) {
 				this.rebalance(parent);
-				this.rebalanceUp((BSTNode<T>) parent);
+				parent = (BSTNode<T>) parent.getParent();
 			}
 		}
 	}
