@@ -58,22 +58,22 @@ public class BSTImpl<T extends Comparable<T>> implements BST<T> {
 	@Override
 	public void insert(T element) {
 		if (element != null) {
-			this.insert(element, this.getRoot(), new BSTNode<>());
+			this.insert(element, this.getRoot());
 		}
 	}
 
 	@SuppressWarnings("unchecked")
-	protected void insert(T element, BSTNode<T> node, BSTNode<T> parent) {
+	protected BSTNode<T> insert(T element, BSTNode<T> node) {
 		if (node.isEmpty()) {
 			node.setData(element);
 			node.setLeft(new BSTNode.Builder<T>().parent(node).build());
 			node.setRight(new BSTNode.Builder<T>().parent(node).build());
-			node.setParent(parent);
 		} else if (element.compareTo(node.getData()) < 0) {
-			this.insert(element, (BSTNode<T>) node.getLeft(), node);
+			node = this.insert(element, (BSTNode<T>) node.getLeft());
 		} else {
-			this.insert(element, (BSTNode<T>) node.getRight(), node);
+			node = this.insert(element, (BSTNode<T>) node.getRight());
 		}
+		return node;
 	}
 
 	@Override
@@ -159,7 +159,7 @@ public class BSTImpl<T extends Comparable<T>> implements BST<T> {
 		remove(node);
 	}
 
-	protected void remove(BSTNode<T> node) {
+	protected BSTNode<T> remove(BSTNode<T> node) {
 		if (!node.isEmpty()) {
 			if (node.isLeaf()) {
 				node.setData(null);
@@ -187,8 +187,9 @@ public class BSTImpl<T extends Comparable<T>> implements BST<T> {
 				} else {
 					if (root.getLeft().isEmpty())
 						root = (BSTNode<T>) root.getRight();
-					else
+					else {
 						root = (BSTNode<T>) root.getLeft();
+					}
 				}
 			} else {
 				BSTNode<T> sucessor = sucessor(node.getData());
@@ -196,6 +197,7 @@ public class BSTImpl<T extends Comparable<T>> implements BST<T> {
 				remove(sucessor);
 			}
 		}
+		return node;
 	}
 
 	protected boolean oneChild(BSTNode<T> node) {
