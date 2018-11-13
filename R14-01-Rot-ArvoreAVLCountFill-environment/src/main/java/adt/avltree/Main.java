@@ -9,5 +9,7 @@ public class Main {
 		Integer[] array = {10, 50, 40, 7, -5};
 		tree.fillWithoutRebalance(array);
 		
+		System.out.println(Arrays.toString(tree.order()));
+		
 	}
 }
