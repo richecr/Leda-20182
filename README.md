@@ -25,3 +25,6 @@
 | 9 | Roteiro 9            | [R09](https://github.com/RichElton/Leda-20182/tree/master/R09-01-Rot-TabelaHash-EndAberto-environment)|
 |10 | Roteiro 10           | [R10](https://github.com/RichElton/Leda-20182/tree/master/R10-01-Rot-Arvore-Binaria-de-Busca-environment)|
 |11 | Roteiro 11           | [R11](https://github.com/RichElton/Leda-20182/tree/master/R11-01-Rot-BST-Comparator-Sorting-environment)|
+|12 | Roteiro 12           | [R12]https://github.com/RichElton/Leda-20182/tree/master/R12-01-Rot-Heap-environment)|
+|13 | Roteiro 13           | [R13]https://github.com/RichElton/Leda-20182/tree/master/R13-01-Rot-ArvoreAVL-environment)|
+
