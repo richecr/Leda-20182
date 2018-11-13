@@ -27,4 +27,4 @@
 |11 | Roteiro 11           | [R11](https://github.com/RichElton/Leda-20182/tree/master/R11-01-Rot-BST-Comparator-Sorting-environment)|
 |12 | Roteiro 12           | [R12](https://github.com/RichElton/Leda-20182/tree/master/R12-01-Rot-Heap-environment)|
 |13 | Roteiro 13           | [R13](https://github.com/RichElton/Leda-20182/tree/master/R13-01-Rot-ArvoreAVL-environment)|
-
+|14 | Roteiro 14           | [R14](https://github.com/RichElton/Leda-20182/tree/master/R14-01-Rot-ArvoreAVLCountFill-environment)|
