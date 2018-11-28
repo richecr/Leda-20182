@@ -33,19 +33,19 @@ public class AVLTreeImpl<T extends Comparable<T>> extends BSTImpl<T> implements 
 
 		if (!node.isEmpty() && element != null) {
 			if (!node.isLeaf()) {
-				toRebalance = (BSTNode<T>) super.sucessor(element);
+				toRebalance = super.sucessor(element);
 			} else {
-				toRebalance = (BSTNode<T>) node;
+				toRebalance = node;
 			}
-
-			super.remove(node);
-			rebalanceUp((BSTNode<T>) toRebalance);
+			
+			super.remove(element);
+			this.rebalanceUp(toRebalance);
 		}
 	}
 
 	// AUXILIARY
 	protected int calculateBalance(BSTNode<T> node) {
-		if (node != null && !node.isEmpty()) {
+		if(node != null && !node.isEmpty()) {
 			return this.height((BSTNode<T>) node.getRight()) - this.height((BSTNode<T>) node.getLeft());
 		}
 		return 0;
@@ -57,15 +57,15 @@ public class AVLTreeImpl<T extends Comparable<T>> extends BSTImpl<T> implements 
 		if (height > 1) {
 			if (calculateBalance((BSTNode<T>) node.getRight()) < 0) {
 				rightRotation((BSTNode<T>) node.getRight());
-				leftRotation(node);
+				leftRotation((BSTNode<T>) node);
 			} else {
 				leftRotation(node);
 			}
 		} else if (height < -1) {
-			if (calculateBalance((BSTNode<T>) node.getLeft()) > 0) {
-				leftRotation((BSTNode<T>) node.getLeft());
+			if (calculateBalance((BSTNode<T>) node.getLeft()) < 0) {
 				rightRotation(node);
 			} else {
+				leftRotation((BSTNode<T>) node.getLeft());
 				rightRotation(node);
 			}
 		}

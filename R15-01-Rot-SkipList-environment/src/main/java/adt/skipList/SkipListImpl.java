@@ -33,8 +33,8 @@ public class SkipListImpl<T> implements SkipList<T> {
 	public void insert(int key, T newValue, int height) {
 		if (height < this.maxHeight) {
 			SkipListNode<T>[] update = new SkipListNode[this.root.height()];
-			
 			SkipListNode<T> aux = this.root;
+			
 			for (int i = this.root.height() - 1; i >= 0; i--) {
 				while (aux.forward[i] != null && aux.forward[i].key < key) {
 					aux = aux.forward[i];
@@ -91,7 +91,9 @@ public class SkipListImpl<T> implements SkipList<T> {
 	@Override
 	public SkipListNode<T> search(int key) {
 		SkipListNode<T> aux = this.root;
+		// Percorro o "prédio" do meu root.
 		for (int i = this.root.height() - 1; i >= 0; i--) {
+			// Se for menor eu desço no "prédio"(não entro no while).
 			while (aux.forward[i] != null && aux.forward[i].key < key) {
 				aux = aux.forward[i];
 			}

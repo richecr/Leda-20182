@@ -267,4 +267,17 @@ public class BSTImpl<T extends Comparable<T>> implements BST<T> {
 		}
 		return result;
 	}
+	
+	public BSTNode<T> k_esimo(int k) {
+		BSTNode<T> node = minimum();
+		return k_esimo(node, k);
+	}
+	
+	public BSTNode<T> k_esimo(BSTNode<T> node, int k) {
+		while(k > 1) {
+			node = this.sucessor(node.getData());
+			k--;
+		}
+		return node;
+	}
 }

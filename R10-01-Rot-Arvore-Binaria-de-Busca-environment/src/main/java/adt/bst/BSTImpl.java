@@ -204,10 +204,6 @@ public class BSTImpl<T extends Comparable<T>> implements BST<T> {
             .isEmpty()));
    }
 
-   private boolean isLeftChild(BSTNode<T> node) {
-      return node.getData().compareTo(node.getParent().getData()) == 0;
-   }
-
    @Override
    public T[] preOrder() {
       List<T> list = new ArrayList<T>();

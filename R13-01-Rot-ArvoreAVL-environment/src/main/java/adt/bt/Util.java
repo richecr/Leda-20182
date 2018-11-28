@@ -42,17 +42,12 @@ public class Util {
 			else
 				node.getParent().setRight(pivot);
 		}
-		
+
 		pivot.setParent(node.getParent());
-
 		node.setParent(pivot);
-
 		node.setLeft(pivot.getRight());
-
 		pivot.getRight().setParent(node);
-
 		pivot.setRight(node);
-
 		return (BSTNode<T>) pivot;
 	}
 
