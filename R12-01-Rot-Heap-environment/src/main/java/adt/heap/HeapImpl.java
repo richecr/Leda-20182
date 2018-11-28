@@ -119,7 +119,6 @@ public class HeapImpl<T extends Comparable<T>> implements Heap<T> {
 		this.index++;
 		int i = this.size() - 1;
 		while (i > 0 && this.comparator.compare(array[this.parent(i)], element) < 0) {
-			System.out.println(array[i]);
 			array[i] = array[this.parent(i)];
 			i = this.parent(i);
 		}

@@ -63,17 +63,16 @@ public class BSTImpl<T extends Comparable<T>> implements BST<T> {
 	}
 
 	@SuppressWarnings("unchecked")
-	protected BSTNode<T> insert(T element, BSTNode<T> node) {
+	protected void insert(T element, BSTNode<T> node) {
 		if (node.isEmpty()) {
 			node.setData(element);
 			node.setLeft(new BSTNode.Builder<T>().parent(node).build());
 			node.setRight(new BSTNode.Builder<T>().parent(node).build());
 		} else if (element.compareTo(node.getData()) < 0) {
-			node = this.insert(element, (BSTNode<T>) node.getLeft());
+			this.insert(element, (BSTNode<T>) node.getLeft());
 		} else {
-			node = this.insert(element, (BSTNode<T>) node.getRight());
+			this.insert(element, (BSTNode<T>) node.getRight());
 		}
-		return node;
 	}
 
 	@Override
