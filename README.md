@@ -29,3 +29,5 @@
 |13 | Roteiro 13           | [R13](https://github.com/RichElton/Leda-20182/tree/master/R13-01-Rot-ArvoreAVL-environment)|
 |14 | Roteiro 14           | [R14](https://github.com/RichElton/Leda-20182/tree/master/R14-01-Rot-ArvoreAVLCountFill-environment)|
 |15 | Roteiro 15           | [R15](https://github.com/RichElton/Leda-20182/tree/master/R15-01-Rot-SkipList-environment)|
+|16 | Roteiro 16           | [R16](https://github.com/RichElton/Leda-20182/tree/master/R16-01-Rot-ArvorePV-environment)|
+|17 | Roteiro 17           | [R17](https://github.com/RichElton/Leda-20182/tree/master/R17-01-Rot-ArvoreB-environment)|
