@@ -83,12 +83,12 @@ public class BTreeImpl<T extends Comparable<T>> implements BTree<T> {
 	}
 
 	private BNodePosition<T> search(BNode<T> node, T element) {
-		int index = 1;
+		int index = 0;
 
-		while (index <= node.size() && element.compareTo(node.getElementAt(index)) > 0) {
+		while (index < node.size() && element.compareTo(node.getElementAt(index)) > 0) {
 			index += 1;
 		}
-		if (index <= node.size() && element == node.getElementAt(index)) {
+		if (index < node.size() && element == node.getElementAt(index)) {
 			return new BNodePosition<T>(node, index);
 		}
 		if (node.isLeaf()) {
